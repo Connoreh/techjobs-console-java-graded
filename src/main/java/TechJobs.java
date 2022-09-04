@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -59,7 +56,7 @@ public class TechJobs {
 
                 // What is their search term?
                 System.out.println("\nSearch term:");
-                String searchTerm = in.nextLine();
+                String searchTerm = in.nextLine().toLowerCase();
 
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
@@ -119,7 +116,38 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+//        String someJobsArray = Arrays.toString(someJobs.toArray());
+//        System.out.println(someJobsArray);
+        if (someJobs.isEmpty()) {
+             System.out.print("No Results");
+        }
+         {
+        for(HashMap<String, String> job: someJobs) {
+//            if(someJobs.isEmpty()){
+//                System.out.println("No Results");
+//
+//                break;
+//            }
+            System.out.println();
+            System.out.println("*****");
+            for (Map.Entry<String, String> jobKey : job.entrySet()) {
 
-        System.out.println("printJobs is not implemented yet");
+//                System.out.println("******");
+                System.out.println(jobKey.getKey() + ": " + jobKey.getValue());
+//                System.out.println("******");
+            }
+
+            System.out.println("*****");
+        }
+//            }
+//            System.out.println("*****");
+//            System.out.println("position type: " + job.get("position type"));
+//            System.out.println("name: " + job.get("name"));
+//            System.out.println("employer: " + job.get("employer"));
+//            System.out.println("location: " + job.get("location"));
+//            System.out.println("core competency: " + job.get("core competency"));
+//            System.out.println("*****\n");
+
+        }
     }
 }
